@@ -1,33 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Eats - Cart</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | Campus Eats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@500;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-    <h1>Campus Eats</h1>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="" width="38" height="38">
+        <span class="logo-text">Campus<span>Eats</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html" aria-current="page">Cart<span class="cart-count" id="cartCount">0</span></a></li>
+          <li><a href="order.html">Order</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="cart.html">Cart</a>
-        <a href="order.html">Order</a>
-    </nav>
-</header>
+  <main>
 
-<main>
-    <h2>Shopping Cart</h2>
+    <section id="cart-intro" aria-labelledby="cart-heading">
+      <div class="wrap">
+        <span class="eyebrow">Before you check out</span>
+        <h1 id="cart-heading">Your Cart</h1>
+        <p>Review your order before checkout. Cart items are saved automatically, so nothing is lost if you close this tab.</p>
+      </div>
+    </section>
 
-    <p>Your selected food items will appear here.</p>
+    <section id="cart-items" aria-label="Items in your cart">
+      <div class="wrap">
 
-    <button>Proceed to Order</button>
-</main>
+        <table id="cartTable">
+          <caption>Items currently in your cart</caption>
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Subtotal</th>
+              <th scope="col">Remove</th>
+            </tr>
+          </thead>
+          <tbody id="cartTableBody">
+            <!-- Rows are populated from localStorage. Example row structure below (Build Day 3): -->
+            <tr class="cart-row" data-item="Masala Dosa">
+              <td data-label="Item">Masala Dosa</td>
+              <td data-label="Price" class="price">₹60</td>
+              <td data-label="Quantity">
+                <label for="qty-masala-dosa" class="visually-hidden">Quantity for Masala Dosa</label>
+                <input type="number" id="qty-masala-dosa" name="qty-masala-dosa" min="1" value="1">
+              </td>
+              <td data-label="Subtotal" class="subtotal price">₹60</td>
+              <td data-label="Remove"><button type="button" class="remove-btn" data-item="Masala Dosa">Remove</button></td>
+            </tr>
+            <tr class="cart-row" data-item="Cold Coffee">
+              <td data-label="Item">Cold Coffee</td>
+              <td data-label="Price" class="price">₹40</td>
+              <td data-label="Quantity">
+                <label for="qty-cold-coffee" class="visually-hidden">Quantity for Cold Coffee</label>
+                <input type="number" id="qty-cold-coffee" name="qty-cold-coffee" min="1" value="1">
+              </td>
+              <td data-label="Subtotal" class="subtotal price">₹40</td>
+              <td data-label="Remove"><button type="button" class="remove-btn" data-item="Cold Coffee">Remove</button></td>
+            </tr>
+          </tbody>
+        </table>
 
-<script src="js/script.js"></script>
+        <p id="emptyCartMessage" hidden>Your cart is empty. <a href="menu.html">Browse the menu</a> to add something delicious.</p>
+
+      </div>
+    </section>
+
+    <section id="cart-summary" aria-labelledby="summary-heading">
+      <div class="wrap">
+        <h2 id="summary-heading">Order Summary</h2>
+        <dl>
+          <div class="summary-row">
+            <dt>Items total</dt>
+            <dd id="itemsTotal">₹100</dd>
+          </div>
+          <div class="summary-row">
+            <dt>Packing charge</dt>
+            <dd id="packingCharge">₹5</dd>
+          </div>
+          <div class="summary-row total">
+            <dt>Grand Total</dt>
+            <dd id="grandTotal">₹105</dd>
+          </div>
+        </dl>
+
+        <div class="cart-actions">
+          <a href="menu.html" class="secondary-btn">Add More Items</a>
+          <a href="order.html" class="cta-button">Proceed to Order</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="order.html">Order</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2026 Campus Eats — Gate 2 Canteen Ordering. Built by Team [Your Team Name].</p>
+    </div>
+  </footer>
 
 </body>
 </html>
