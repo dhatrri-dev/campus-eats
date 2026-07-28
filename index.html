@@ -1,15 +1,154 @@
-<header>
-    <h1>Campus Eats</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Eats | College Canteen Ordering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@500;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="cart.html">Cart</a>
-        <a href="order.html">Order</a>
-    </nav>
-</header>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="" width="38" height="38">
+        <span class="logo-text">Campus<span>Eats</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html">Cart<span class="cart-count" id="cartCount">0</span></a></li>
+          <li><a href="order.html">Order</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<main>
-    <h2>Welcome to Campus Eats</h2>
-    <p>Browse delicious meals from your college canteen.</p>
-</main>
+  <main>
+
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="eyebrow">Skip the queue at Gate 2 canteen</span>
+          <h1 id="hero-heading">Order Ahead. Grab Your Token. Eat.</h1>
+          <p>Campus Eats turns the canteen counter into a two-minute pickup. Browse the menu, add what you're craving, and we'll have your order stamped and ready when you walk in.</p>
+          <a href="menu.html" class="cta-button">Browse the Menu</a>
+        </div>
+        <div class="ticket-stub">
+          <span class="stub-label">Sample Token</span>
+          <p class="stub-number">047</p>
+          <hr>
+          <div class="stub-row"><span>Masala Dosa</span><span class="token-code">₹60</span></div>
+          <div class="stub-row"><span>Cold Coffee</span><span class="token-code">₹40</span></div>
+          <div class="stub-row"><span>Packing</span><span class="token-code">₹5</span></div>
+          <hr>
+          <div class="stub-row"><strong>Total</strong><strong class="token-code">₹105</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" aria-labelledby="how-heading">
+      <div class="wrap">
+        <span class="eyebrow">Three steps, no app install</span>
+        <h2 id="how-heading">How It Works</h2>
+        <ol>
+          <li>
+            <span class="step-number">01</span>
+            <h3>Browse the menu</h3>
+            <p>Filter by Breakfast, Meals, Snacks, Beverages, or Desserts — everything the counter is actually cooking today.</p>
+          </li>
+          <li>
+            <span class="step-number">02</span>
+            <h3>Add to your cart</h3>
+            <p>Tap "Add to Cart" on anything you like. It's saved automatically, even if you close the tab mid-lecture.</p>
+          </li>
+          <li>
+            <span class="step-number">03</span>
+            <h3>Collect your token</h3>
+            <p>Fill in your pickup slot, submit, and get a token number to show at the counter. No line, no waiting.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="today-highlights" aria-labelledby="highlights-heading">
+      <div class="wrap">
+        <span class="eyebrow">Counter favourites</span>
+        <h2 id="highlights-heading">Today's Highlights</h2>
+        <div class="highlight-cards">
+
+          <article class="highlight-card">
+            <div class="item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 15c0-5 4.5-9 10-9s10 4 10 9"/><path d="M2 15h20"/><path d="M6 15c0-3 2.5-5 6-5"/></svg>
+            </div>
+            <span class="category-tag">Breakfast</span>
+            <h3>Masala Dosa</h3>
+            <p>Crisp rice-and-lentil crepe with spiced potato filling, sambar, and coconut chutney.</p>
+            <p class="price">₹60</p>
+          </article>
+
+          <article class="highlight-card">
+            <div class="item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 0 16 0"/><path d="M4 12h16"/><path d="M9 8c0-1.5 1.3-2.5 3-2.5s3 1 3 2.5"/></svg>
+            </div>
+            <span class="category-tag">Meals</span>
+            <h3>Veg Thali</h3>
+            <p>Rice, dal, two curries, roti, salad, and curd — the full canteen lunch combo.</p>
+            <p class="price">₹90</p>
+          </article>
+
+          <article class="highlight-card">
+            <div class="item-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9h9a3 3 0 0 1 0 6H6z"/><path d="M6 9v6"/><path d="M9 4c0 1-1 1-1 2"/><path d="M12 4c0 1-1 1-1 2"/></svg>
+            </div>
+            <span class="category-tag">Beverages</span>
+            <h3>Cold Coffee</h3>
+            <p>Chilled and frothy, made fresh to order — the go-to break-time pick-me-up.</p>
+            <p class="price">₹40</p>
+          </article>
+
+        </div>
+        <p><a href="menu.html">See the full menu, 26 items across 5 categories →</a></p>
+      </div>
+    </section>
+
+    <section id="canteen-info" aria-labelledby="info-heading">
+      <div class="wrap">
+        <span class="eyebrow">Gate 2 Canteen, Main Block</span>
+        <h2 id="info-heading">Serving Hours</h2>
+        <table>
+          <caption>Serving hours by meal</caption>
+          <thead>
+            <tr><th scope="col">Meal</th><th scope="col">Timing</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Breakfast</td><td>7:30 AM – 9:30 AM</td></tr>
+            <tr><td>Lunch</td><td>12:00 PM – 2:30 PM</td></tr>
+            <tr><td>Snacks</td><td>4:00 PM – 6:30 PM</td></tr>
+            <tr><td>Dinner</td><td>7:00 PM – 9:30 PM</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="order.html">Order</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2026 Campus Eats — Gate 2 Canteen Ordering. Built by Team [Your Team Name].</p>
+    </div>
+  </footer>
+
+</body>
+</html>
