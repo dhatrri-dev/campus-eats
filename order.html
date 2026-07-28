@@ -1,42 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Eats - Order</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Your Order | Campus Eats</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@500;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-    <h1>Campus Eats</h1>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.png" alt="" width="38" height="38">
+        <span class="logo-text">Campus<span>Eats</span></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html">Cart<span class="cart-count" id="cartCount">0</span></a></li>
+          <li><a href="order.html" aria-current="page">Order</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="cart.html">Cart</a>
-        <a href="order.html">Order</a>
-    </nav>
-</header>
+  <main>
 
-<main>
-    <h2>Place Your Order</h2>
+    <section id="order-intro" aria-labelledby="order-heading">
+      <div class="wrap">
+        <span class="eyebrow">Last step</span>
+        <h1 id="order-heading">Complete Your Order</h1>
+        <p>Fill in your details below and we'll have it stamped and ready for pickup at the canteen counter.</p>
+      </div>
+    </section>
 
-    <form>
-        <label for="name">Name</label><br>
-        <input type="text" id="name" placeholder="Enter your name"><br><br>
+    <section id="order-review" aria-labelledby="review-heading">
+      <div class="wrap">
+        <h2 id="review-heading">Order Review</h2>
+        <ul id="orderReviewList">
+          <li><span>1 × Masala Dosa</span><span class="token-code">₹60</span></li>
+          <li><span>1 × Cold Coffee</span><span class="token-code">₹40</span></li>
+          <li><span>Packing charge</span><span class="token-code">₹5</span></li>
+        </ul>
+        <p>Grand Total: <strong id="orderGrandTotal" class="token-code">₹105</strong></p>
+        <p><a href="cart.html">Edit cart</a></p>
+      </div>
+    </section>
 
-        <label for="phone">Phone Number</label><br>
-        <input type="tel" id="phone" placeholder="Enter your phone number"><br><br>
+    <section id="order-form-section" aria-labelledby="form-heading">
+      <div class="wrap">
+        <h2 id="form-heading">Pickup Details</h2>
 
-        <label for="address">Delivery Location</label><br>
-        <textarea id="address" rows="4" placeholder="Enter delivery location"></textarea><br><br>
+        <form id="orderForm" novalidate>
 
-        <button type="submit">Place Order</button>
-    </form>
-</main>
+          <fieldset>
+            <legend>Your Information</legend>
 
-<script src="js/script.js"></script>
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g. Harika Reddy" required>
+
+            <label for="registerNumber">Register Number</label>
+            <input type="text" id="registerNumber" name="registerNumber" placeholder="e.g. 22BCE1234" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@vitstudent.ac.in" required>
+          </fieldset>
+
+          <fieldset>
+            <legend>Pickup Details</legend>
+
+            <label for="hostelBlock">Hostel / Block</label>
+            <select id="hostelBlock" name="hostelBlock" required>
+              <option value="">Select your block</option>
+              <option value="mens-hostel-a">Men's Hostel A</option>
+              <option value="mens-hostel-b">Men's Hostel B</option>
+              <option value="ladies-hostel-a">Ladies' Hostel A</option>
+              <option value="ladies-hostel-b">Ladies' Hostel B</option>
+              <option value="day-scholar">Day Scholar</option>
+            </select>
+
+            <label for="pickupTime">Preferred Pickup Time</label>
+            <input type="time" id="pickupTime" name="pickupTime" required>
+
+            <fieldset class="payment-options">
+              <legend>Payment Method</legend>
+              <label for="payCash">
+                <input type="radio" id="payCash" name="paymentMethod" value="cash" checked>
+                Cash on Pickup
+              </label>
+              <label for="payUpi">
+                <input type="radio" id="payUpi" name="paymentMethod" value="upi">
+                UPI
+              </label>
+            </fieldset>
+
+            <label for="specialInstructions">Special Instructions (optional)</label>
+            <textarea id="specialInstructions" name="specialInstructions" rows="3" placeholder="e.g. less spicy, no onion"></textarea>
+          </fieldset>
+
+          <fieldset>
+            <legend>Confirm</legend>
+            <label for="agreeTerms">
+              <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+              I confirm my order details are correct
+            </label>
+          </fieldset>
+
+          <button type="submit" id="submitOrderBtn">Place Order &amp; Get Token</button>
+        </form>
+
+        <p id="orderConfirmation" role="status" hidden>Your order has been placed! You'll get a confirmation on your registered email.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <nav aria-label="Footer navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="order.html">Order</a></li>
+        </ul>
+      </nav>
+      <p>&copy; 2026 Campus Eats — Gate 2 Canteen Ordering. Built by Team [Your Team Name].</p>
+    </div>
+  </footer>
 
 </body>
 </html>
