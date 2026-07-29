@@ -10,22 +10,46 @@
 </head>
 <body>
 
-  <header class="site-header">
+<header class="site-header">
     <div class="wrap header-inner">
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="" width="38" height="38">
-        <span class="logo-text">Campus<span>Eats</span></span>
-      </a>
-      <nav aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="cart.html" aria-current="page">Cart<span class="cart-count" id="cartCount">0</span></a></li>
-          <li><a href="order.html">Order</a></li>
-        </ul>
-      </nav>
+
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Campus Eats Logo" width="38" height="38">
+            <span class="logo-text">
+                Campus<span>Eats</span>
+            </span>
+        </a>
+
+        <input
+            type="checkbox"
+            id="navToggle"
+            class="nav-toggle-input"
+        >
+
+        <label
+            for="navToggle"
+            class="nav-toggle-label"
+            aria-label="Toggle navigation menu"
+        >
+            ☰ Menu
+        </label>
+
+       <nav aria-label="Main navigation">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li>
+            <a href="cart.html" aria-current="page">
+                Cart
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </li>
+        <li><a href="order.html">Order</a></li>
+    </ul>
+</nav>
+
     </div>
-  </header>
+</header>
 
   <main>
 
@@ -51,7 +75,10 @@
               <th scope="col">Remove</th>
             </tr>
           </thead>
-          <tbody id="cartTableBody">
+          <tbody
+    id="cartTableBody"
+    aria-live="polite"
+>
             <!-- Rows are populated from localStorage. Example row structure below (Build Day 3): -->
             <tr class="cart-row" data-item="Masala Dosa">
               <td data-label="Item">Masala Dosa</td>
@@ -76,7 +103,11 @@
           </tbody>
         </table>
 
-        <p id="emptyCartMessage" hidden>Your cart is empty. <a href="menu.html">Browse the menu</a> to add something delicious.</p>
+        <p
+    id="emptyCartMessage"
+    hidden
+    aria-live="polite"
+>Your cart is empty. <a href="menu.html">Browse the menu</a> to add something delicious.</p>
 
       </div>
     </section>
@@ -95,13 +126,24 @@
           </div>
           <div class="summary-row total">
             <dt>Grand Total</dt>
-            <dd id="grandTotal">₹105</dd>
+            <dd
+              id="grandTotal"
+              aria-live="polite"
+          >
+              ₹105
+          </dd>
           </div>
         </dl>
 
         <div class="cart-actions">
           <a href="menu.html" class="secondary-btn">Add More Items</a>
-          <a href="order.html" class="cta-button">Proceed to Order</a>
+          <a
+              href="order.html"
+              class="cta-button"
+              aria-label="Proceed to Order Page"
+          >
+              Proceed to Order
+          </a>
         </div>
       </div>
     </section>
@@ -118,7 +160,7 @@
           <li><a href="order.html">Order</a></li>
         </ul>
       </nav>
-      <p>&copy; 2026 Campus Eats — Gate 2 Canteen Ordering. Built by Team [Your Team Name].</p>
+      <p>&copy; 2026 Campus Eats — Gate 2 Canteen Ordering. Built by Team Dhatrri-Harika</p>
     </div>
   </footer>
 
