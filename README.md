@@ -1,85 +1,48 @@
 # Campus Eats – College Canteen Ordering
 
-A food ordering website for the Gate 2 Canteen. Students can browse the menu, add items to their cart, and place a pickup order online.
+## 📖 Project Overview
 
----
+Campus Eats is a food ordering website for a college canteen. Students can browse the menu, add food items to their cart, and place orders online.
 
 ## 👥 Team Members
 
-| Name | Page |
-|------|------|
+| Name | Responsibility |
+|------|----------------|
 | Dhatrri Nagapatla | Home Page, Menu Page |
 | Laxmi Harika | Cart Page, Order Page |
 
----
+## ✅ Implemented Features (Current Version)
 
-## 📁 Pages
+The current version focuses on the structural HTML implementation of the web pages:
+- **Home Page (`index.html`)**: Basic HTML structure, hero section, and "How it Works" guide.
+- **Menu Page (`menu.html`)**: HTML structure with hardcoded menu items and categories.
+- **Shopping Cart (`cart.html`)**: HTML mockup of the cart interface and order summary.
+- **Order Form (`order.html`)**: HTML structure for the checkout and pickup details.
+- **Styling and Responsive Design (`css/style.css`)**: Cohesive canteen-themed design system, custom typography, color palette, and responsive layouts.
 
-### `index.html` — Home Page
-- Hero section with a sample order token
-- "How It Works" — 3-step walkthrough
-- Today's Highlights — 3 featured menu items (Masala Dosa, Veg Thali, Cold Coffee)
-- Canteen Serving Hours table
 
-| Meal | Timing |
-|------|--------|
-| Breakfast | 7:30 AM – 9:30 AM |
-| Lunch | 12:00 PM – 2:30 PM |
-| Snacks | 4:00 PM – 6:30 PM |
-| Dinner | 7:00 PM – 9:30 PM |
+## ✨ Upcoming / Planned Features (Pending CSS & JS)
 
-### `menu.html` — Menu Page
-- 26 items across 5 categories
-- Category filter buttons (All, Breakfast, Meals, Snacks, Beverages, Desserts)
-- Search form
-- "Add to Cart" button on each item with `data-item` and `data-price` attributes
-
-| Category | Items |
-|----------|-------|
-| Breakfast (5) | Masala Dosa ₹60, Idli Sambar ₹40, Poha ₹35, Upma ₹35, Onion Uttapam ₹55 |
-| Meals (6) | Veg Thali ₹90, Veg Biryani ₹85, Curd Rice ₹50, Chapati with Curry ₹55, Rajma Chawal ₹70, Lemon Rice ₹45 |
-| Snacks (6) | Samosa ₹25, Grilled Veg Sandwich ₹45, Veg Maggi ₹40, Pav Bhaji ₹55, Aloo Tikki ₹30, Vada Pav ₹25 |
-| Beverages (5) | Cold Coffee ₹40, Masala Chai ₹15, Fresh Lime Soda ₹30, Badam Milk ₹35, Filter Coffee ₹20 |
-| Desserts (4) | Gulab Jamun ₹30, Brownie with Ice Cream ₹65, Fruit Custard ₹40, Kesari Bath ₹35 |
-
-### `cart.html` — Cart Page *(shell)*
-- Navigation and basic layout in place
-- "Proceed to Order" button
-
-### `order.html` — Order Page *(shell)*
-- Form with Name, Phone Number, and Delivery Location fields
-- "Place Order" submit button
-
----
+- Styling and Responsive Design (`style.css`)
+- Category Filters (JavaScript)
+- Local Storage Integration for Cart State (JavaScript)
+- Dynamic Cart Count Updates (JavaScript)
+- Client-side Form Validation (JavaScript)
 
 ## 📁 Project Structure
 
-```
+```text
 campus-eats/
-├── index.html
-├── menu.html
-├── cart.html
-├── order.html
+│
+├── index.html       # Home Page structure
+├── menu.html        # Menu Page structure
+├── cart.html        # Shopping Cart structure
+├── order.html       # Order Form structure
+│
 ├── css/
-│   └── style.css
-├── js/
-│   └── script.js
-├── images/
-│   └── logo.svg
-└── README.md
-```
-
----
-
-## 🚀 How to Run
-
-Open `index.html` in any modern browser — no build step required.
-
-```bash
-# Or serve locally with Python
-python -m http.server 8080
-```
-
----
-
-*© 2026 Campus Eats — Gate 2 Canteen*
+│   └── style.css    # Central styling and responsive layout rules
+│
+├── images/          # Image assets folder
+│   └── logo.png     # Logo image
+│
+└── README.md        # Project documentation
