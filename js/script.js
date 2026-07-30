@@ -32,6 +32,21 @@ function updateCartCountDisplay() {
     badge.textContent = count;
   });
 }
+function addItemToCart(name, price) {
+  const cartItems = getCart();
+  const existingItem = cartItems.find(function (item) {
+    return item.name === name;
+  });
+
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cartItems.push({ name: name, price: price, quantity: 1 });
+  }
+
+  saveCart(cartItems);
+  updateCartCountDisplay();
+}
 /* ---------- Menu search (Menu page only) ---------- */
 
 function getActiveCategory() {
@@ -114,10 +129,35 @@ function initMenuSearch() {
     filterMenuItems();
   });
 }
+/* ---------- Add to cart buttons (Menu page) ---------- */
+
+function initAddToCartButtons() {
+  const addButtons = document.querySelectorAll('.add-to-cart-btn');
+
+  addButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const itemName = button.dataset.item;
+      const itemPrice = Number(button.dataset.price);
+
+      addItemToCart(itemName, itemPrice);
+
+      const originalText = button.textContent;
+      button.textContent = 'Added ✓';
+      button.disabled = true;
+
+      setTimeout(function () {
+        button.textContent = originalText;
+        button.disabled = false;
+      }, 900);
+    });
+  });
+}
 /* ---------- Init on page load ---------- */
+
 
 document.addEventListener('DOMContentLoaded', function () {
   updateCartCountDisplay();
   initMenuSearch();
   initCategoryFilters();
+  initAddToCartButtons();
 });
