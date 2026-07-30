@@ -195,6 +195,125 @@ function renderOrderReview() {
   saveCart(cartItems);
   updateCartCountDisplay();
 }
+
+/* ---------- Order form validation (Order page only) ---------- */
+
+function isValidEmail(email) {
+  const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return pattern.test(email);
+}
+
+function isValidPhone(phone) {
+  const pattern = /^[0-9]{10}$/;
+  return pattern.test(phone);
+}
+
+function showFieldError(input, message) {
+  clearFieldError(input);
+  const error = document.createElement('span');
+  error.classList.add('field-error');
+  error.style.color = '#C1442D';
+  error.style.fontSize = '0.8rem';
+  error.style.display = 'block';
+  error.style.marginTop = '0.3rem';
+  error.textContent = message;
+  input.insertAdjacentElement('afterend', error);
+  input.style.borderColor = '#C1442D';
+}
+
+function clearFieldError(input) {
+  input.style.borderColor = '';
+  const next = input.nextElementSibling;
+  if (next && next.classList.contains('field-error')) {
+    next.remove();
+  }
+}
+
+function clearAllOrderErrors(form) {
+  const errors = form.querySelectorAll('.field-error');
+  errors.forEach(function (e) { e.remove(); });
+  const fields = form.querySelectorAll('input, select, textarea');
+  fields.forEach(function (f) { f.style.borderColor = ''; });
+}
+
+function validateOrderForm(form) {
+  let isValid = true;
+
+  const fullName = form.querySelector('#fullName');
+  const registerNumber = form.querySelector('#registerNumber');
+  const phone = form.querySelector('#phone');
+  const email = form.querySelector('#email');
+  const hostelBlock = form.querySelector('#hostelBlock');
+  const pickupTime = form.querySelector('#pickupTime');
+  const agreeTerms = form.querySelector('#agreeTerms');
+
+  if (fullName.value.trim() === '') {
+    showFieldError(fullName, 'Full name cannot be empty.');
+    isValid = false;
+  }
+
+  if (registerNumber.value.trim() === '') {
+    showFieldError(registerNumber, 'Register number cannot be empty.');
+    isValid = false;
+  }
+
+  if (phone.value.trim() === '') {
+    showFieldError(phone, 'Phone number cannot be empty.');
+    isValid = false;
+  } else if (!isValidPhone(phone.value.trim())) {
+    showFieldError(phone, 'Enter a valid 10-digit phone number.');
+    isValid = false;
+  }
+
+  if (email.value.trim() === '') {
+    showFieldError(email, 'Email cannot be empty.');
+    isValid = false;
+  } else if (!isValidEmail(email.value.trim())) {
+    showFieldError(email, 'Enter a valid email address.');
+    isValid = false;
+  }
+
+  if (hostelBlock.value === '') {
+    showFieldError(hostelBlock, 'Please select your block.');
+    isValid = false;
+  }
+
+  if (pickupTime.value === '') {
+    showFieldError(pickupTime, 'Please choose a pickup time.');
+    isValid = false;
+  }
+
+  if (!agreeTerms.checked) {
+    showFieldError(agreeTerms, 'Please confirm your order details.');
+    isValid = false;
+  }
+
+  return isValid;
+}
+
+function initOrderForm() {
+  const form = document.querySelector('#orderForm');
+  const confirmation = document.querySelector('#orderConfirmation');
+
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    clearAllOrderErrors(form);
+
+    const isValid = validateOrderForm(form);
+
+    if (isValid) {
+      confirmation.hidden = false;
+      form.hidden = true;
+      saveCart([]);
+      updateCartCountDisplay();
+    } else {
+      confirmation.hidden = true;
+    }
+  });
+}
+
 /* ---------- Menu search (Menu page only) ---------- */
 
 function getActiveCategory() {
@@ -310,4 +429,5 @@ document.addEventListener('DOMContentLoaded', function () {
   initAddToCartButtons();
   renderCartPage();
   renderOrderReview();
+   initOrderForm();
 });
