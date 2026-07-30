@@ -146,6 +146,46 @@ function renderCartPage() {
   attachCartRowListeners();
 }
 
+/* ---------- Order review rendering (Order page only) ---------- */
+
+function renderOrderReview() {
+  const reviewList = document.querySelector('#orderReviewList');
+  const grandTotalEl = document.querySelector('#orderGrandTotal');
+
+  if (!reviewList || !grandTotalEl) return;
+
+  const cartItems = getCart();
+  reviewList.innerHTML = '';
+
+  if (cartItems.length === 0) {
+    const emptyLi = document.createElement('li');
+    emptyLi.textContent = 'Your cart is empty.';
+    reviewList.appendChild(emptyLi);
+    grandTotalEl.textContent = '₹0';
+    return;
+  }
+
+  let itemsTotal = 0;
+
+  cartItems.forEach(function (item) {
+    const subtotal = item.price * item.quantity;
+    itemsTotal += subtotal;
+
+    const li = document.createElement('li');
+    li.innerHTML = '<span>' + item.quantity + ' × ' + item.name + '</span><span class="token-code">₹' + subtotal + '</span>';
+    reviewList.appendChild(li);
+  });
+
+  const packingCharge = 5;
+  const grandTotal = itemsTotal + packingCharge;
+
+  const packingLi = document.createElement('li');
+  packingLi.innerHTML = '<span>Packing charge</span><span class="token-code">₹' + packingCharge + '</span>';
+  reviewList.appendChild(packingLi);
+
+  grandTotalEl.textContent = '₹' + grandTotal;
+}
+
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
@@ -269,4 +309,5 @@ document.addEventListener('DOMContentLoaded', function () {
   initCategoryFilters();
   initAddToCartButtons();
   renderCartPage();
+  renderOrderReview();
 });
