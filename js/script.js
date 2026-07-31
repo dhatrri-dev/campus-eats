@@ -294,24 +294,61 @@ function validateOrderForm(form) {
 function initOrderForm() {
   const form = document.querySelector('#orderForm');
   const confirmation = document.querySelector('#orderConfirmation');
+  const errorMsg = document.querySelector('#orderError');
+  const submitBtn = document.querySelector('#submitOrderBtn');
 
   if (!form) return;
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     clearAllOrderErrors(form);
+    if (errorMsg) errorMsg.hidden = true;
+    confirmation.hidden = true;
 
     const isValid = validateOrderForm(form);
+    if (!isValid) return;
 
-    if (isValid) {
+    submitOrder(form, confirmation, errorMsg, submitBtn);
+  });
+}
+
+function submitOrder(form, confirmation, errorMsg, submitBtn) {
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Placing order…';
+
+  const orderPayload = {
+    fullName: form.querySelector('#fullName').value.trim(),
+    registerNumber: form.querySelector('#registerNumber').value.trim(),
+    phone: form.querySelector('#phone').value.trim(),
+    email: form.querySelector('#email').value.trim(),
+    hostelBlock: form.querySelector('#hostelBlock').value,
+    pickupTime: form.querySelector('#pickupTime').value,
+    items: getCart()
+  };
+
+  fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(orderPayload)
+  })
+    .then(function (response) {
+      if (!response.ok) throw new Error('Server error');
+      return response.json();
+    })
+    .then(function () {
       confirmation.hidden = false;
       form.hidden = true;
       saveCart([]);
       updateCartCountDisplay();
-    } else {
-      confirmation.hidden = true;
-    }
-  });
+    })
+    .catch(function () {
+      if (errorMsg) errorMsg.hidden = false;
+    })
+    .finally(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    });
 }
 
 /* ---------- Menu search (Menu page only) ---------- */
