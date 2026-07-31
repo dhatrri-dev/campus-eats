@@ -23,8 +23,8 @@ The current version focuses on the structural HTML implementation of the web pag
 - **Local Storage Integration for Cart State (JavaScript)**: Cart contents persist across page reloads using localStorage.
 - **Dynamic Cart Count Updates (JavaScript)**: Cart badge in the navigation updates live as items are added or removed.
 - **Client-side Form Validation (JavaScript)**: Order form validates empty fields, email format, and phone number format, with inline error messages and a success state.
-
-
+- **Fetch API Integration (JavaScript)**: Order submission uses fetch() to send order data to a mock REST API endpoint.
+- **Loading, Success & Error States (JavaScript)**: Displays loading feedback during submission, a confirmation on success, and an error message if the request fails.
 
 ## ✨ Upcoming / Planned Features (Pending CSS & JS)
 
