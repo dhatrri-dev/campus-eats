@@ -18,7 +18,7 @@ function saveCart(cartItems) {
 function getCartItemCount(cartItems) {
   let total = 0;
   for (let i = 0; i < cartItems.length; i++) {
-    total += cartItems[i].quantity;
+    total += Number(cartItems[i].quantity) || 0;
   }
   return total;
 }
@@ -37,6 +37,16 @@ function addItemToCart(name, price) {
   const existingItem = cartItems.find(function (item) {
     return item.name === name;
   });
+
+  if (existingItem) {
+    existingItem.quantity = Number(existingItem.quantity) + 1;
+  } else {
+    cartItems.push({ name: name, price: price, quantity: 1 });
+  }
+
+  saveCart(cartItems);
+  updateCartCountDisplay();
+}
 
   /* ---------- Cart page rendering (Cart page only) ---------- */
 
@@ -186,16 +196,6 @@ function renderOrderReview() {
   grandTotalEl.textContent = '₹' + grandTotal;
 }
 
-  if (existingItem) {
-    existingItem.quantity += 1;
-  } else {
-    cartItems.push({ name: name, price: price, quantity: 1 });
-  }
-
-  saveCart(cartItems);
-  updateCartCountDisplay();
-}
-
 /* ---------- Order form validation (Order page only) ---------- */
 
 function isValidEmail(email) {
@@ -306,7 +306,13 @@ function initOrderForm() {
     confirmation.hidden = true;
 
     const isValid = validateOrderForm(form);
-    if (!isValid) return;
+    if (!isValid) {
+      const firstError = form.querySelector('.field-error');
+      if (firstError) {
+        firstError.previousElementSibling.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
 
     submitOrder(form, confirmation, errorMsg, submitBtn);
   });
