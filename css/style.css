@@ -655,7 +655,7 @@ input[type="time"]:focus, select:focus, textarea:focus {
 }
 .site-footer .wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: var(--space-3);
   align-items: center;
@@ -677,7 +677,7 @@ input[type="time"]:focus, select:focus, textarea:focus {
   transition: color var(--transition);
 }
 .site-footer a:hover { color: var(--secondary); }
-.site-footer p { color: #8B8778; font-size: 0.8rem; margin: 0; }
+.site-footer p { color: #8B8778; font-size: 0.8rem; margin: 0; white-space: nowrap; }
 
 /* ---------- Utility ---------- */
 .visually-hidden {
