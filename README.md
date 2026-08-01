@@ -11,31 +11,30 @@ Campus Eats is a food ordering website for a college canteen. Students can brows
 | Dhatrri Nagapatla | Home Page, Menu Page |
 | Laxmi Harika | Cart Page, Order Page |
 
-## ✅ Implemented Features (Current Version)
+## ✅ Project Milestones & Implemented Features
 
-The current version focuses on the structural HTML implementation of the web pages:
-- **Home Page (`index.html`)**: Basic HTML structure, hero section, and "How it Works" guide.
-- **Menu Page (`menu.html`)**: HTML structure with hardcoded menu items and categories.
-- **Shopping Cart (`cart.html`)**: HTML mockup of the cart interface and order summary.
-- **Order Form (`order.html`)**: HTML structure for the checkout and pickup details.
-- **Styling and Responsive Design (`css/style.css`)**: Cohesive canteen-themed design system, custom typography, color palette, and responsive layouts.
-- **Category Filters (JavaScript)**: Menu items can be filtered by category (Breakfast, Meals, Snacks, Beverages, Desserts).
-- **Local Storage Integration for Cart State (JavaScript)**: Cart contents persist across page reloads using localStorage.
-- **Dynamic Cart Count Updates (JavaScript)**: Cart badge in the navigation updates live as items are added or removed.
-- **Client-side Form Validation (JavaScript)**: Order form validates empty fields, email format, and phone number format, with inline error messages and a success state.
-- **Fetch API Integration (JavaScript)**: Order submission uses fetch() to send order data to a mock REST API endpoint.
-- **Loading, Success & Error States (JavaScript)**: Displays loading feedback during submission, a confirmation on success, and an error message if the request fails.
+This project was built progressively over five structured build days (Day 7 to Day 11), successfully culminating in a fully responsive, interactive, and data-driven web application:
 
-## ✨ Upcoming / Planned Features (Pending CSS & JS)
+### Day 7 & 8: Structure & Content 
+- **Architecture**: Established the project skeleton, defined team responsibilities, and wired navigation between all pages.
+- **Semantic HTML**: Built out the complete structure for the **Home (`index.html`)**, **Menu (`menu.html`)**, **Cart (`cart.html`)**, and **Order (`order.html`)** pages using real, context-accurate content and proper semantic tags.
 
-- Styling and Responsive Design (`style.css`)
-- Category Filters (JavaScript)
-- Local Storage Integration for Cart State (JavaScript)
-- Dynamic Cart Count Updates (JavaScript)
-- Client-side Form Validation (JavaScript)
-- Order confirmation persistence (view past orders)
-- Accessibility audit pass (focus states, ARIA refinements)
-- Deployment (GitHub Pages)
+### Day 9: Design System & Styling
+- **Shared CSS Tokens**: Created a unified design system (`css/style.css`) utilizing CSS variables for consistent color palettes, typography (`Archivo Black`, `Work Sans`, `IBM Plex Mono`), and layout rhythms.
+- **Responsive Design**: Ensured all pages adapt flawlessly to mobile, tablet, and desktop viewports, featuring cohesive hover states and polished UI components.
+
+### Day 10: Interactivity & JavaScript
+- **Dynamic DOM Manipulation**: Implemented live updates for the cart badge and interactive filtering logic for the menu categories.
+- **Form Validation**: Added robust client-side validation for the checkout form, verifying required fields and formats (email, phone numbers), complete with auto-scrolling to inline error messages.
+
+### Day 11: Live Data & Persistence
+- **State Persistence**: Integrated `localStorage` so the user's cart contents and quantities survive across page reloads.
+- **API Integration**: Utilized the `fetch()` API to simulate real-time order submission, effectively handling all three application states (loading, success confirmations, and error handling).
+
+### Day 12: Deployment & Git Collaboration
+- **Live Deployment**: Successfully deployed the application to GitHub Pages, making the project publicly accessible online.
+- **Git Collaboration**: Managed code collaboration via branches, pull requests, and resolved merge conflicts to merge all features for the final release.
+
 
 ## 📁 Project Structure
 
