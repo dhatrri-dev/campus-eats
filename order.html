@@ -57,13 +57,15 @@
     <section id="order-review" aria-labelledby="review-heading">
       <div class="wrap">
         <h2 id="review-heading">Order Review</h2>
-        <ul id="orderReviewList">
-          <li><span>1 × Masala Dosa</span><span class="token-code">₹60</span></li>
-          <li><span>1 × Cold Coffee</span><span class="token-code">₹40</span></li>
-          <li><span>Packing charge</span><span class="token-code">₹5</span></li>
-        </ul>
-        <p>Grand Total: <strong id="orderGrandTotal" class="token-code">₹105</strong></p>
-        <p><a href="cart.html">Edit cart</a></p>
+        <div class="review-card">
+          <ul id="orderReviewList">
+            <!-- Populated by JS -->
+          </ul>
+          <div class="review-footer">
+            <p>Grand Total: <strong id="orderGrandTotal" class="token-code">₹0</strong></p>
+            <p><a href="cart.html" class="edit-link">Edit cart</a></p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -77,16 +79,16 @@
             <legend>Your Information</legend>
 
             <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="e.g. Harika Reddy" required>
+            <input type="text" id="fullName" name="fullName" required>
 
             <label for="registerNumber">Register Number</label>
-            <input type="text" id="registerNumber" name="registerNumber" placeholder="e.g. 22BCE1234" required>
+            <input type="text" id="registerNumber" name="registerNumber" required>
 
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
 
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@vitstudent.ac.in" required>
+            <input type="email" id="email" name="email" required>
           </fieldset>
 
           <fieldset>
@@ -118,7 +120,7 @@
             </fieldset>
 
             <label for="specialInstructions">Special Instructions (optional)</label>
-            <textarea id="specialInstructions" name="specialInstructions" rows="3" placeholder="e.g. less spicy, no onion"></textarea>
+            <textarea id="specialInstructions" name="specialInstructions" rows="3"></textarea>
           </fieldset>
 
           <fieldset>
@@ -132,11 +134,11 @@
           <button type="submit" id="submitOrderBtn">Place Order &amp; Get Token</button>
         </form>
 
-    <p
+    <div
     id="orderConfirmation"
     role="status"
     aria-live="polite"
-    hidden>Your order has been placed! You'll get a confirmation on your registered email.</p>
+    hidden></div>
 
 <p
     id="orderError"
