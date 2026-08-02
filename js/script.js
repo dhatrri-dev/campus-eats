@@ -343,8 +343,42 @@ function submitOrder(form, confirmation, errorMsg, submitBtn) {
       return response.json();
     })
     .then(function () {
+      const cartItems = getCart();
+      let tokenHtml = '<div class="ticket-stub" style="max-width: 400px; margin: 2rem auto;">' +
+                      '<span class="stub-label">Your Order Token</span>' +
+                      '<p class="stub-number">' + Math.floor(100 + Math.random() * 900) + '</p>' +
+                      '<hr>';
+      
+      let itemsTotal = 0;
+      cartItems.forEach(function(item) {
+          const subtotal = item.price * item.quantity;
+          itemsTotal += subtotal;
+          tokenHtml += '<div class="stub-row"><span>' + item.quantity + ' × ' + item.name + '</span><span class="token-code">₹' + subtotal + '</span></div>';
+      });
+      tokenHtml += '<div class="stub-row"><span>Packing</span><span class="token-code">₹5</span></div>';
+      tokenHtml += '<hr>';
+      tokenHtml += '<div class="stub-row"><strong>Total</strong><strong class="token-code">₹' + (itemsTotal + 5) + '</strong></div>';
+      tokenHtml += '</div>';
+      tokenHtml += '<p style="margin-top: 1.5rem; text-align: center; color: var(--curry-leaf); font-weight: 600; font-size: 1.1rem;">Order placed successfully! Show this token at the counter.</p>';
+
+      confirmation.innerHTML = tokenHtml;
       confirmation.hidden = false;
       form.hidden = true;
+      
+      const reviewSection = document.querySelector('#order-review');
+      if (reviewSection) reviewSection.hidden = true;
+      
+      const formHeading = document.querySelector('#form-heading');
+      if (formHeading) formHeading.hidden = true;
+
+      const introEyebrow = document.querySelector('#order-intro .eyebrow');
+      const introHeading = document.querySelector('#order-intro h1');
+      const introDesc = document.querySelector('#order-intro p');
+      
+      if (introEyebrow) introEyebrow.textContent = 'Success';
+      if (introHeading) introHeading.textContent = 'Order Confirmed';
+      if (introDesc) introDesc.textContent = 'Your order has been sent to the kitchen. Please show your token at the counter to pick up your food.';
+
       saveCart([]);
       updateCartCountDisplay();
     })
@@ -433,10 +467,10 @@ function initMenuSearch() {
   searchForm.addEventListener('submit', function (e) {
     e.preventDefault();
     filterMenuItems();
-  });
-
-  searchInput.addEventListener('input', function () {
-    filterMenuItems();
+    const grid = document.querySelector('#menu-grid');
+    if (grid) {
+      grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 }
 /* ---------- Add to cart buttons (Menu page) ---------- */
