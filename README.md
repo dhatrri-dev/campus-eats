@@ -2,7 +2,11 @@
 
 ## 📖 Project Overview
 
-Campus Eats is a food ordering website for a college canteen. Students can browse the menu, add food items to their cart, and place orders online.
+Campus Eats is a fully responsive frontend web application developed to modernize the college canteen ordering experience. The platform allows students to browse menu items, search and filter dishes, manage their shopping cart, and place pickup orders through an intuitive and interactive interface.
+
+Throughout the project, key frontend concepts such as semantic HTML, responsive CSS design systems, DOM manipulation, Local Storage, form validation, and collaborative Git workflows were implemented to create a seamless user experience across desktop, tablet, and mobile devices.
+
+This project was collaboratively developed during the **Zyora Frontend Internship Program**, providing hands-on experience in real-world frontend development and team-based software engineering practices.
 
 ## 👥 Team Members
 
