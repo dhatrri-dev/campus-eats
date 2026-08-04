@@ -11,6 +11,35 @@ Campus Eats is a food ordering website for a college canteen. Students can brows
 | Dhatrri Nagapatla | Home Page, Menu Page |
 | Laxmi Harika | Cart Page, Order Page |
 
+
+## 📌 Team Contributions & Learning
+
+### 👩‍💻 Dhatrri Nagapatla
+
+**Built**
+- Home Page (index.html)
+- Menu Page (menu.html)
+- Homepage layout and hero section
+- Menu cards, search bar and category filters
+- Shared JavaScript structure
+- Menu search functionality
+- Category filter interactivity
+- Shared cart count using Local Storage
+- Active navigation highlighting
+- Cart and checkout UI improvements
+- Project documentation and README updates
+
+**Learned**
+- Building responsive web pages using HTML and CSS
+- Creating reusable layouts with Flexbox, Grid and CSS variables
+- Organizing JavaScript into reusable functions
+- Using DOM manipulation for interactive user interfaces
+- Working with Local Storage for persistent data
+- Collaborating using Git and GitHub through feature-based commits
+
+---
+
+
 ## ✅ Project Milestones & Implemented Features
 
 This project was built progressively over five structured build days (Day 7 to Day 11), successfully culminating in a fully responsive, interactive, and data-driven web application:
