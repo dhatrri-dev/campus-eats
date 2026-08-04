@@ -62,6 +62,15 @@ Campus Eats is a food ordering website for a college canteen. Students can brows
 
 ---
 
+### 🎯Key Technical Highlights 
+
+- **HTML5** – Structured all webpages using semantic HTML elements.
+- **CSS3** – Designed a responsive and consistent user interface using Flexbox, Grid, media queries, and CSS variables.
+- **JavaScript (ES6)** – Implemented interactive features such as menu search, category filters, add-to-cart functionality, form validation, and DOM manipulation.
+- **Local Storage** – Stored cart items and maintained cart data across page refreshes.
+- **Git** – Managed version control through feature-based commits during development.
+- **GitHub** – Used for collaborative development, repository management, and project deployment.
+
 ## ✅ Project Milestones & Implemented Features
 
 This project was built progressively over five structured build days (Day 7 to Day 11), successfully culminating in a fully responsive, interactive, and data-driven web application:
