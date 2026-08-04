@@ -39,6 +39,28 @@ Campus Eats is a food ordering website for a college canteen. Students can brows
 
 ---
 
+### 👩‍💻 Laxmi Harika
+
+**Built**
+- Cart Page (cart.html)
+- Order Page (order.html)
+- Order review section
+- Checkout form
+- Payment section
+- Cart rendering with quantity updates
+- Order form validation
+- Order submission workflow
+- Error handling and loading states
+- Deployment and collaboration updates
+
+**Learned**
+- Creating accessible forms using HTML
+- Implementing client-side form validation with JavaScript
+- Managing shopping cart operations
+- Handling user feedback through validation and success messages
+- Collaborating with GitHub using commits, pull requests and merge workflows
+
+---
 
 ## ✅ Project Milestones & Implemented Features
 
